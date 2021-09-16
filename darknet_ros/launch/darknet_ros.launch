@@ -5,6 +5,8 @@
   <arg name="launch_prefix" default=""/>
   <arg name="image" default="/camera/rgb/image_raw" />
 
+  <arg name="target_fps_period_secs" default="0.1" />
+
   <!-- Config and weights folder. -->
   <arg name="yolo_weights_path"          default="$(find darknet_ros)/yolo_network_config/weights"/>
   <arg name="yolo_config_path"           default="$(find darknet_ros)/yolo_network_config/cfg"/>
@@ -21,6 +23,7 @@
   <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen" launch-prefix="$(arg launch_prefix)">
     <param name="weights_path"          value="$(arg yolo_weights_path)" />
     <param name="config_path"           value="$(arg yolo_config_path)" />
+    <param name="target_fps_period_secs" value="$(arg target_fps_period_secs)" />
     <remap from="camera/rgb/image_raw"  to="$(arg image)" />
   </node>
 

@@ -178,6 +178,7 @@ class YoloObjectDetector {
   int buffIndex_ = 0;
   IplImage* ipl_;
   float fps_ = 0;
+  float target_fps_period_secs_ = 0.1;
   float demoThresh_ = 0;
   float demoHier_ = .5;
   int running_ = 0;
